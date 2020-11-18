@@ -1,0 +1,33 @@
+/*
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+ 
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+ 
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see .
+    */
+    
+
+// Variables pour le modules HC SR-04: 
+int trig = 8; // yellow wire
+int echo = 9; // green wire
+long lecture_echo;
+long mesure = 0;
+long m3 = 0;
+
+// Calcul volume:
+long calculVolume(){
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  lecture_echo = pulseIn(echo,HIGH);
+  mesure = (((lecture_echo /58)-53)/18.2);
+  m3 = (10-mesure);
+  return m3;
+}
