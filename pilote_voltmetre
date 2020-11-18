@@ -1,0 +1,11 @@
+//Include librarie(s).
+// no lib needed
+
+//set reference voltage;
+float refVcc = 12.0;
+int sensorValue;
+
+//Function(s).
+long calculVoltage(){
+return sensorValue*refVcc/1023
+}
